@@ -6,11 +6,11 @@ plugins {
 }
 
 android {
-    namespace = "com.app.fcmaccesebility"
+    namespace = "com.app.fcmaccessibility"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.app.fcmaccesebility"
+        applicationId = "com.app.fcmaccessibility"
         minSdk = 24
         targetSdk = 34
         versionCode = 1

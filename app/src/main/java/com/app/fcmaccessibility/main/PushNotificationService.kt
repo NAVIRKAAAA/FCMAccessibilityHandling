@@ -1,4 +1,4 @@
-package com.app.fcmaccesebility.main
+package com.app.fcmaccessibility.main
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -9,8 +9,7 @@ import android.net.Uri
 import android.os.Build
 import android.util.Log
 import androidx.core.app.NotificationCompat
-import com.app.fcmaccesebility.R
-import com.google.firebase.messaging.FirebaseMessaging
+import com.app.fcmaccessibility.R
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import kotlinx.coroutines.CoroutineScope

@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:957122203536:android:c5c9cdff50378ff75f2d15",
+        "mobilesdk_app_id": "1:957122203536:android:2f683d71a5b1871c5f2d15",
         "android_client_info": {
-          "package_name": "com.app.fcmaccesebility"
+          "package_name": "com.app.fcmaccessibility"
         }
       },
       "oauth_client": [],

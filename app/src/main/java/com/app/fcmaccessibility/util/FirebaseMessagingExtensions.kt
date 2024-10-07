@@ -1,4 +1,4 @@
-package com.app.fcmaccesebility.util
+package com.app.fcmaccessibility.util
 
 import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.coroutines.tasks.await

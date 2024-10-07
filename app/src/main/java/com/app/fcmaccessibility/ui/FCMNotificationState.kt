@@ -1,6 +1,4 @@
-package com.app.fcmaccesebility.ui
-
-import com.google.accompanist.permissions.PermissionState
+package com.app.fcmaccessibility.ui
 
 data class FCMNotificationState(
     val hasPermission: Boolean = false,

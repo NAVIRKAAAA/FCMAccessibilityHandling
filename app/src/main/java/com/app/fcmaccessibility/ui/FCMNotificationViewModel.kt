@@ -1,19 +1,15 @@
-package com.app.fcmaccesebility.ui
+package com.app.fcmaccessibility.ui
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.app.fcmaccesebility.main.NotificationAccessibilityManager
-import com.app.fcmaccesebility.util.setAccessibility
+import com.app.fcmaccessibility.main.NotificationAccessibilityManager
+import com.app.fcmaccessibility.util.setAccessibility
 import com.google.firebase.messaging.FirebaseMessaging
-import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
 
 class FCMNotificationViewModel(
     private val notificationAccessibilityManager: NotificationAccessibilityManager

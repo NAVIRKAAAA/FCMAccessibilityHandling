@@ -1,4 +1,4 @@
-package com.app.fcmaccesebility.main
+package com.app.fcmaccessibility.main
 
 import com.google.gson.Gson
 

@@ -1,12 +1,11 @@
-package com.app.fcmaccesebility.main
+package com.app.fcmaccessibility.main
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import com.app.fcmaccesebility.ui.FCMNotificationScreen
-import com.app.fcmaccesebility.ui.FCMNotificationViewModel
-import com.app.fcmaccesebility.ui.theme.FCMAccesebilityTheme
+import com.app.fcmaccessibility.ui.FCMNotificationScreen
+import com.app.fcmaccessibility.ui.FCMNotificationViewModel
+import com.app.fcmaccessibility.ui.theme.FCMAccesebilityTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

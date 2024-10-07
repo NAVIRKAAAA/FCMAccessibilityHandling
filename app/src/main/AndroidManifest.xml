@@ -14,13 +14,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FCMAccesebility"
+        android:theme="@style/Theme.FCMAccessibility"
         tools:targetApi="31">
         <activity
-            android:name=".main.MainActivity"
+            android:name="com.app.fcmaccessibility.main.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.FCMAccesebility">
+            android:theme="@style/Theme.FCMAccessibility">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
