@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "957122203536",
+    "project_id": "fcmaccesebility",
+    "storage_bucket": "fcmaccesebility.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:957122203536:android:c5c9cdff50378ff75f2d15",
+        "android_client_info": {
+          "package_name": "com.app.fcmaccesebility"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlK1PGX7W9zymPdBjAR1LbJm8uQCss8SI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
