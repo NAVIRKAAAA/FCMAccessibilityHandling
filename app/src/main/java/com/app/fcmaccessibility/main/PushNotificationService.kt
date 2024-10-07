@@ -14,6 +14,7 @@ import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 
@@ -24,17 +25,18 @@ class PushNotificationService(
     private val scope = CoroutineScope(Dispatchers.IO)
     private var notificationId = 0
     private lateinit var notificationManager: NotificationManager
+    private var notificationAccessibilityManager: NotificationAccessibilityManager? = null
+
 
     override fun onCreate() {
         super.onCreate()
-        Log.d("LOG_TAG", "PushNotificationService onCreate()")
         notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
+        notificationAccessibilityManager = NotificationAccessibilityManager(this)
         createNotificationChannel()
     }
 
     override fun onNewToken(token: String) {
         super.onNewToken(token)
-
         setFCMToken(token)
     }
 
@@ -47,12 +49,14 @@ class PushNotificationService(
         super.onMessageReceived(message)
 
         scope.launch {
-            val rebNotification = message.data.toFCMNotification() ?: return@launch
-            showNotification(rebNotification.message)
+            if(notificationAccessibilityManager?.get()?.first() == false) return@launch
+
+            val fcmNotification = message.data.toFCMNotification() ?: return@launch
+            showNotification(fcmNotification.title, fcmNotification.message)
         }
     }
 
-    private fun showNotification(message: String) {
+    private fun showNotification(title: String, message: String) {
         val intent = Intent(this, MainActivity::class.java)
 
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
@@ -66,8 +70,8 @@ class PushNotificationService(
 
         val notificationBuilder = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_launcher_background)
-            .setContentTitle(message)
-            .setContentText("Content Text")
+            .setContentTitle(title)
+            .setContentText(message)
             .setAutoCancel(true)
             .setContentIntent(pendingIntent)
             .setStyle(NotificationCompat.InboxStyle())

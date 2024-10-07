@@ -3,8 +3,8 @@ package com.app.fcmaccessibility.main
 import com.google.gson.Gson
 
 data class FCMNotification(
+    val title: String,
     val message: String,
-    val body: String,
     val sound: String
 )
 

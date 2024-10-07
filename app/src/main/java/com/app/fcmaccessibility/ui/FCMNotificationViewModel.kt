@@ -3,11 +3,9 @@ package com.app.fcmaccessibility.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.fcmaccessibility.main.NotificationAccessibilityManager
-import com.app.fcmaccessibility.util.setAccessibility
-import com.google.firebase.messaging.FirebaseMessaging
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
@@ -17,7 +15,6 @@ class FCMNotificationViewModel(
 
     private val _state = MutableStateFlow(FCMNotificationState())
     val state = _state.asStateFlow()
-    private val firebaseMessaging = FirebaseMessaging.getInstance()
 
     init {
         setAccessibility()
@@ -25,10 +22,9 @@ class FCMNotificationViewModel(
 
     private fun setAccessibility() {
         viewModelScope.launch {
-            val accessibility = notificationAccessibilityManager.get().first()
-            _state.update { it.copy(notificationIsEnabled = accessibility) }
-
-            firebaseMessaging.setAccessibility(accessibility)
+            notificationAccessibilityManager.get().collect { accessibility ->
+                _state.update { it.copy(notificationIsEnabled = accessibility) }
+            }
         }
     }
 
@@ -39,10 +35,7 @@ class FCMNotificationViewModel(
     }
 
     fun onNotificationAccessibilityChange(isEnabled: Boolean) {
-        viewModelScope.launch {
-            _state.update { it.copy(notificationIsEnabled = isEnabled) }
-
-            firebaseMessaging.setAccessibility(isEnabled)
+        viewModelScope.launch(Dispatchers.IO) {
             notificationAccessibilityManager.set(isEnabled)
         }
     }
