@@ -10,11 +10,11 @@ data class FCMNotification(
 
 fun Map<String, String>.toFCMNotification(): FCMNotification? {
     return try {
-        Gson().toJson(this).jsonToRebNotification()
+        Gson().toJson(this).jsonToFCMNotification()
     } catch (e: Exception) {
         null
     }
 
 }
 
-fun String.jsonToRebNotification(): FCMNotification = Gson().fromJson(this, FCMNotification::class.java)
+fun String.jsonToFCMNotification(): FCMNotification = Gson().fromJson(this, FCMNotification::class.java)
